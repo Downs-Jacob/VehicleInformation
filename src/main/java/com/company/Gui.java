@@ -4,8 +4,12 @@ import com.company.services.ChooseFile;
 import com.itextpdf.text.DocumentException;
 import com.opencsv.exceptions.CsvException;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
+
 import java.io.IOException;
 
 // this class handles the creation of a user interactive window

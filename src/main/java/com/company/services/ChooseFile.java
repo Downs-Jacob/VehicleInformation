@@ -1,6 +1,6 @@
 package com.company.services;
 
-import javax.swing.*;
+import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 //class that handles the logic that allows a user to choose a csv file that can

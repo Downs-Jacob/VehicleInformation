@@ -14,13 +14,13 @@ public class CsvParserTest {
     @Test
     public void testCsvReader() throws Exception {
         StringBuilder sb = new StringBuilder(CSVParser.INITIAL_READ_SIZE);
-        sb.append("a,b,c").append("\n");   // standard case
-        sb.append("a,\"b,b,b\",c").append("\n");  // quoted elements
-        sb.append(",,").append("\n"); // empty elements
+        sb.append("a,b,c").append("\n");   // test standard case
+        sb.append("a,\"b,b,b\",c").append("\n");  // test with quotes
+        sb.append(",,").append("\n"); // test empty
         sb.append("a,\",\n\n\",d.\n");
-        sb.append("\"Car \"\"Vehicle\"\" Drive\",,\n"); // Test quoted quote chars
-        sb.append("\"\"\"\"\"\",\"test\"\n"); // """""","test"  representing:  "", test
-        sb.append("\"a\nb\",b,\"\nd\",e\n");
+        sb.append("\"Car \"\"Vehicle\"\" Drive\",,\n"); // test strings with quotes
+        sb.append("\"\"\"\"\"\",\"test\"\n"); // test non comma quote elements with single comma and string
+
         CSVReader csvr = new CSVReader(new StringReader(sb.toString()));
 
         // test normal case
@@ -48,11 +48,8 @@ public class CsvParserTest {
         assertEquals("Car \"Vehicle\" Drive", nextLine[0]);
 
         nextLine = csvr.readNext();
-        assertEquals("\"\"", nextLine[0]); // check the tricky situation
-        assertEquals("test", nextLine[1]); // make sure we didn't ruin the next field..
-
-        nextLine = csvr.readNext();
-        assertEquals(4, nextLine.length);
+        assertEquals("\"\"", nextLine[0]); // checking non comma elements
+        assertEquals("test", nextLine[1]); // test that the word is still printed properly
 
         //test end of stream
         assertNull(csvr.readNext());

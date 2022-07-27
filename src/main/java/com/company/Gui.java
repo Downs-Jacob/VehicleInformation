@@ -12,7 +12,7 @@ import java.io.IOException;
 // and deployment of buttons that handle the logic of converting
 // the csv fil chosen by user into a pdf.
 public class Gui {
-    static void createAndShowGUI() {
+    public static void createAndShowGUI() {
         //Create and set up the Jframe window.
         JFrame frame = new JFrame("Vehicle Information CSV Converter");
         frame.setLayout(new FlowLayout());

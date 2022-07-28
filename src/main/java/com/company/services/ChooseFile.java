@@ -13,7 +13,7 @@ public class ChooseFile {
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "CSV File", "csv");
         fileChooser.setFileFilter(filter);
-        //
+
         int returnVal = fileChooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION) {
         }

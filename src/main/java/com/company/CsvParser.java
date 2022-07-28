@@ -33,19 +33,6 @@ public class CsvParser {
         }
     }
 
-
-    //oreach a : b.getKeys()
-    //  c = b.get(a) // instead of getting it from the file again
-    //  foreach d : c.getKeys()
-    //  e = c.get(d)
-
-    //for (Integer year: mapOfXYZ.keys())
-    //  Map<stuff> mapOfABC =  mapOfXYZ.get(year)
-    //  for (String make : mapOfABC.keys())
-    //      List<Car> cars = mapOfABC.get(make)
-    //       for(Car car : cars)
-    //          Do whatever you want
-
     static Car getCar(String line) {
         String[] fields = line.split(",");
         return new Car(Integer.parseInt(fields[0]),fields[1], fields[2], Integer.parseInt(fields[3]));

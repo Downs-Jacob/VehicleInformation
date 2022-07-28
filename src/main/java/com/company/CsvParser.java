@@ -17,7 +17,7 @@ public class CsvParser {
                 .collect(Collectors.groupingBy(Car::getYear, Collectors.groupingBy(Car::getMake)));
 
         for (Integer year: mapOfCarsByYearAndMake.keySet()) {
-            System.out.println(year.intValue());
+            System.out.println("All Vehicles of " + year.intValue());
             Map<String, List<Car>> mapOfCarMake = mapOfCarsByYearAndMake.get(year);
             for (String make: mapOfCarMake.keySet()) {
                 System.out.println("Make: " + make);
@@ -46,7 +46,7 @@ public class CsvParser {
     //       for(Car car : cars)
     //          Do whatever you want
 
-    private static Car getCar(String line) {
+    static Car getCar(String line) {
         String[] fields = line.split(",");
         return new Car(Integer.parseInt(fields[0]),fields[1], fields[2], Integer.parseInt(fields[3]));
     }

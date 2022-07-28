@@ -40,7 +40,7 @@ public class Gui {
                 // when button clicked run the pdf generator method and pass the user's chosen csv
                 // file into the generator
                 String chosenFile = ChooseFile.userFileChoice();
-                new CreatePdf().pdfGenerator(chosenFile);
+                new CreatePdfFromParse().pdfGenerator(chosenFile);
             } catch (IOException ex) {
                 ex.printStackTrace();
             } catch (CsvException ex) {

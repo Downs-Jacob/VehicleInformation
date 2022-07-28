@@ -61,11 +61,10 @@ public class Gui {
         button2.setText("Output to Terminal");
         button2.addActionListener(e -> {
             try {
-                new CsvReader();
+                String chosenFile = ChooseFile.userFileChoice();
+                new CsvParser(chosenFile);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
-            } catch (CsvException csvException) {
-                csvException.printStackTrace();
             }
             //close window
             frame.setVisible(false);

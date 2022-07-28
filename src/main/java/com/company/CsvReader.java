@@ -5,6 +5,7 @@ import com.opencsv.exceptions.CsvException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +13,8 @@ public class CsvReader {
 
     public CsvReader() throws IOException, CsvException {
         //designate the location of the csv file
-        String fileName = "/Users/downs/Desktop/VehicleInformation/vehicleinfo.csv";
+        String fileName = "/Users/downs/Desktop/VehicleInformation/src/main/vehicleinfo.csv";
+        Path path = Path.of("src", "main","vehicleinfo.csv");
 
         //creates a new csvreader instance and looks for the designated .csv file
         try (
@@ -20,6 +22,7 @@ public class CsvReader {
             List<String[]> r = reader.readAll();
 
             int listIndex = 0;
+
             //for loop to parse each entry in the csv and create an output table
             for (String[] arrays : r) {
                 if (listIndex == 0) {
